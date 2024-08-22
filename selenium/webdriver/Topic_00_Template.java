@@ -12,14 +12,11 @@ import java.util.concurrent.TimeUnit;
 public class Topic_00_Template {
     WebDriver driver;
 
-    String projectPath = System.getProperty("user.dir");
-
-    String osName = System.getProperty("oss.name");
-
     @BeforeClass
     public void Run_On_Chrome() {
         driver = new ChromeDriver();
         driver.get("https://www.nopcommerce.com/en/register?returnUrl=%2Fen%2Fdemo");
+        driver.manage().window().maximize();
     }
 
     @Test

@@ -3,6 +3,7 @@ package webdriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -12,7 +13,7 @@ public class Topic_07_XPath_Css_BAITAP {
     WebDriver driver;
 
     @BeforeClass
-    public void Run_On_Chrome() {
+   public void Run_On_Chrome() {
         driver = new ChromeDriver();
     }
 
@@ -20,6 +21,7 @@ public class Topic_07_XPath_Css_BAITAP {
     public void Register_01_Empty_Data(){
         driver.get("https://alada.vn/tai-khoan/dang-ky.html");
         driver.manage().window().maximize();
+
 
         // Action
         driver.findElement(By.id("txtFirstname")).clear();

@@ -15,7 +15,7 @@ public class Topic_00_Template {
     @BeforeClass
     public void Run_On_Chrome() {
         driver = new ChromeDriver();
-        driver.get("https://www.nopcommerce.com/en/register?returnUrl=%2Fen%2Fdemo");
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
 

@@ -6,7 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -36,7 +39,6 @@ public class Topic_10_WebBrowser_Commands {
 
         // Version 4
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-
         driver.manage().window().maximize();
     }
 // Test push
@@ -61,8 +63,35 @@ public class Topic_10_WebBrowser_Commands {
         // Nó sẽ đi tìm vs loại By nào trả về 1 danh sách element nếu như được tìm thấy (List WebElement)
         // Ko được tìm thấy - k bị fail - trả về 1 list rỗng (0 Element)
         List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
-        checkboxes.get(1).click();
-        driver.findElement(By.cssSelector("button#login")).click();
+
+        // Tại sao lại cần phải lấy dữ liệu ra để làm gì?
+        // Dùng để lấy ra cái Url của màn hình hiện tại
+        driver.getCurrentUrl();
+
+        // LẤy ra page source TML/ CSS/ JS của trang hiện tại
+        // Verify 1 cách tương đối
+        driver.getPageSource();
+        Assert.assertTrue(driver.getCurrentUrl().contains("Hello EVerry One"));
+
+        // Lấy ra cái title của trang hiện tại
+        driver.getTitle();
+
+        // Lấy ra cái id của tab hiêện tại
+        driver.getWindowHandle();
+        driver.getWindowHandles();
+
+        // Cookies - dùng trong bài Framework
+        driver.manage().getCookies();
+
+        // Get ra những log ở Dev Tool
+        driver.manage().logs().get(LogType.DRIVER);
+
+        // Apply cho việc tìm Element (findElement/ findElemets)
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
+        // Chờ cho 1 page được load xong
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+
     }
     @Test
     public void TC_02_(){

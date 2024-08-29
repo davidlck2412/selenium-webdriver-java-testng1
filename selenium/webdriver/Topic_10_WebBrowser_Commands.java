@@ -39,7 +39,7 @@ public class Topic_10_WebBrowser_Commands {
 
         driver.manage().window().maximize();
     }
-
+// Test push
     @Test
     public void TC_01_(){
         // Mở ra trang Url bất kỳ

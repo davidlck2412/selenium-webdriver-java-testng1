@@ -1,8 +1,6 @@
 package webdriver;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -91,6 +89,26 @@ public class Topic_10_WebBrowser_Commands {
 
         // Chờ cho 1 page được load xong
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+
+        // Set trước khi dùng vs thư viện JavascriptExcutor
+        // Inject 1 đoạn code JS vào trong Browser/ Element
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
+
+
+        // Chạy full màn hình (như F11)
+        driver.manage().window().fullscreen();
+        driver.manage().window().maximize();
+        driver.manage().window().minimize();
+
+        // Test Responsive
+        driver.manage().window().setSize(new Dimension(1366, 768));
+        driver.manage().window().setSize(new Dimension(1920, 1080));
+        driver.manage().window().setSize(new Dimension(2560, 1440));
+
+        driver.manage().window().getSize();
+
+        driver.manage().window().setPosition(new Point(0,0));
+        driver.manage().window().getPosition();
 
     }
     @Test

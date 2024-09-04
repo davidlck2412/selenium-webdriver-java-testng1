@@ -12,6 +12,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -30,33 +32,33 @@ public class Topic_10_WebBrowser_Commands {
         //driver = new ChromeDriver();
         //driver = new SafariDriver();
         //driver = new EdgeDriver();
-        driver = new FirefoxDriver();
+        driver = new FirefoxDriver(); //**
 
         // Version 3
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         // Version 4
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); //**
         driver.manage().window().maximize();
     }
 // Test push
     @Test
-    public void TC_01_(){
+    public void TC_01_() throws MalformedURLException {
         // Mở ra trang Url bất kỳ
-        driver.get("http://develop.seitrace.com");
+        driver.get("http://develop.seitrace.com");  //**
 
         // Nếu như có 1 tab thì giống "quit"
         // Nhiều hơn 1 thì đóng cái nó đang active
-        driver.close();
+        driver.close(); //*
         // Đóng Browser không care bao nhiêu tab
-        driver.quit();
+        driver.quit(); //**
 
         // 2 hàm này sẽ bị ảnh hưởng timeout của implicitWait
 
         // Nó sẽ đi tìm với loại By nào và trả về element nếu như được tìm thấy
         // K tìm thấy thì Fail tại step này - Throw exception: NóuchElementException
         // Trả về 1 Element - nếu như tìm thấy nhiều hơn 1 thì cũng chỉ lấy 1 (thao tác vs cái đầu tiên)
-        WebElement emailAddressTextbox = driver.findElement(By.id("email"));
+        WebElement emailAddressTextbox = driver.findElement(By.id("email"));  //**
 
         // Nó sẽ đi tìm vs loại By nào trả về 1 danh sách element nếu như được tìm thấy (List WebElement)
         // Ko được tìm thấy - k bị fail - trả về 1 list rỗng (0 Element)
@@ -64,7 +66,7 @@ public class Topic_10_WebBrowser_Commands {
 
         // Tại sao lại cần phải lấy dữ liệu ra để làm gì?
         // Dùng để lấy ra cái Url của màn hình hiện tại
-        driver.getCurrentUrl();
+        driver.getCurrentUrl(); //*
 
         // LẤy ra page source TML/ CSS/ JS của trang hiện tại
         // Verify 1 cách tương đối
@@ -85,7 +87,7 @@ public class Topic_10_WebBrowser_Commands {
         driver.manage().logs().get(LogType.DRIVER);
 
         // Apply cho việc tìm Element (findElement/ findElemets)
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); //**
 
         // Chờ cho 1 page được load xong
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
@@ -97,7 +99,7 @@ public class Topic_10_WebBrowser_Commands {
 
         // Chạy full màn hình (như F11)
         driver.manage().window().fullscreen();
-        driver.manage().window().maximize();
+        driver.manage().window().maximize(); //**
         driver.manage().window().minimize();
 
         // Test Responsive
@@ -109,6 +111,38 @@ public class Topic_10_WebBrowser_Commands {
 
         driver.manage().window().setPosition(new Point(0,0));
         driver.manage().window().getPosition();
+
+        // Điều hướng trang web
+        driver.navigate().back();
+        driver.navigate().refresh();
+        driver.navigate().forward();
+
+        // Thao tác vs history của web page (back/forward)
+        driver.navigate().to("https://facebook.com");
+        driver.navigate().to(new URL("https://facebook.com/"));
+
+        // Alert/ Window(tab)/ Frame (iFrame)  //*
+        driver.switchTo().alert().accept();
+        driver.switchTo().alert().dismiss();
+        driver.switchTo().alert().getText();
+        driver.switchTo().alert().sendKeys("");
+
+        // Lấy ra cái id của tab hiêện tại
+        String homePageWindowID = driver.getWindowHandle();
+        driver.switchTo().window("homePageWindowID");
+
+        // Switch/ handle frame(iFrame)  //*
+        // Index/ ID(name)/ Element
+        driver.switchTo().frame(0);
+        driver.switchTo().frame("3243242");
+        driver.switchTo().frame(driver.findElement(By.id("")));
+
+        // Switch về HTML chứa frame trước đó
+        driver.switchTo().defaultContent();
+
+        // Từ Frame trong đi ra ngoài chứa nó
+        driver.switchTo().parentFrame();
+
 
     }
     @Test

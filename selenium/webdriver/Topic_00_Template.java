@@ -14,8 +14,8 @@ public class Topic_00_Template {
     WebDriver driver;
 
     @BeforeClass
-    public void Run_On_Chrome() {
-        driver = new ChromeDriver();
+    public void Run_On_FireFox() {
+        driver = new FirefoxDriver();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.manage().window().maximize();
     }

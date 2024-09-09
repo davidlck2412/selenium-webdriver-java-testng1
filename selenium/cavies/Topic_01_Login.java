@@ -37,8 +37,6 @@ public class Topic_01_Login {
         driver.findElement(By.xpath("//div[@class='css-6hgcyh']//p")).click();
         sleepInSeconds(2);
         Assert.assertEquals(driver.findElement(By.xpath("//input[@id='field-:rha:']")).getAttribute("value"), email);
-
-
     }
 
 

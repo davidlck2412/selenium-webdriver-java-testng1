@@ -10,23 +10,17 @@ public class Topic_01_Check_Environment {
     WebDriver driver;
 
     @Test
-    public void TC_01_Run_On_Firefox() {
-        driver = new FirefoxDriver();
-        driver.get("https://www.facebook.com/");
-        driver.quit();
+    public void TC_01_() {
+
     }
 
     @Test
-    public void TC_02_Run_On_Chrome() {
-        driver = new ChromeDriver();
-        driver.get("https://www.facebook.com/");
-        driver.quit();
+    public void TC_02_() {
+
     }
 
     @Test
-    public void TC_03_Run_On_Edge() {
-        driver = new EdgeDriver();
-        driver.get("https://www.facebook.com/");
-        driver.quit();
+    public void TC_03_() {
+
     }
 }

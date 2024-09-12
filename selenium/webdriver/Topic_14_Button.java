@@ -10,11 +10,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.awt.*;
 import java.time.Duration;
-import java.util.Locale;
 
-public class Topic_14_Button_Checkbox_Radiobutton {
+public class Topic_14_Button {
     WebDriver driver;
 
     @BeforeClass

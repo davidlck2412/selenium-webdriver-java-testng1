@@ -2,19 +2,14 @@ package webdriver;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.logging.LogType;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class Topic_10_WebBrowser_Commands_02 {
+public class Topic_08_WebBrowser_Commands_02 {
     // Các câu lệnh để thao tác vs Browser
     // driver.
     WebDriver driver;

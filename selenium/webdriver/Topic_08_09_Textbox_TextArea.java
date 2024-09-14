@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Random;
 
-public class Topic_10_11_Textbox_TextArea {
+public class Topic_08_09_Textbox_TextArea {
     WebDriver driver;
 
     @BeforeClass

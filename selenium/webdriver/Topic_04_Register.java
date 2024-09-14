@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_06_Register {
+public class Topic_04_Register {
     WebDriver driver;
 
     String username, password;

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Topic_14_Button {
+public class Topic_12_Button {
     WebDriver driver;
 
     @BeforeClass

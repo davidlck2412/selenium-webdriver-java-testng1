@@ -1,6 +1,5 @@
 package webdriver;
 
-import graphql.language.SelectionSet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +13,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.List;
 
-public class Topic_15_Checkbox_Radio {
+public class Topic_13_Checkbox_Radio {
     WebDriver driver;
 
     @BeforeClass

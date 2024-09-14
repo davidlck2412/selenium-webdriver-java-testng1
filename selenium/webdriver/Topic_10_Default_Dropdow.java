@@ -2,8 +2,6 @@ package webdriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -12,10 +10,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.List;
 import java.util.Random;
 
-public class Topic_12_Default_Dropdow {
+public class Topic_10_Default_Dropdow {
     WebDriver driver;
     String firstName = "David", lastName = "Luong", emailAddress = getEmailAddress();
     String passWord = "Camkhang91@", companyName = "LCK SJC";

@@ -2,16 +2,14 @@ package webdriver;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.List;
 
-public class Topic_11_Webelement_Commands_02 {
+public class Topic_09_Webelement_Commands_02 {
     WebDriver driver;
 
     @BeforeClass

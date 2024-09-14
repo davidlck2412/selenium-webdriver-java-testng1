@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.List;
 
-public class Topic_13_Custom_Dropdown {
+public class Topic_11_Custom_Dropdown {
     WebDriver driver;
 
     // Tường minh: trạng thái cụ thể cho element

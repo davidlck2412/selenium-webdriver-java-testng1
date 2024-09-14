@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Topic_16_Handle_Alert {
+public class Topic_14_Handle_Alert {
     WebDriver driver;
 
     By resultText = By.xpath("//p[@id='result']");

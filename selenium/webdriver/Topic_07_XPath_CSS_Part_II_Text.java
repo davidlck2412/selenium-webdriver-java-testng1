@@ -8,7 +8,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_09_XPath_CSS_Part_II_Text {
+public class Topic_07_XPath_CSS_Part_II_Text {
     WebDriver driver;
 
     @BeforeClass

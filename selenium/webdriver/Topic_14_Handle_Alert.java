@@ -1,17 +1,25 @@
 package webdriver;
 
+import org.apache.commons.codec.binary.Base64;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.bidi.module.Network;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.HasDevTools;
+import org.openqa.selenium.devtools.v116.network.model.Headers;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Topic_14_Handle_Alert {
     WebDriver driver;
@@ -19,6 +27,8 @@ public class Topic_14_Handle_Alert {
     By resultText = By.xpath("//p[@id='result']");
 
     WebDriverWait explicitWait;
+    String userName = "admin";
+    String passWord = "admin";
 
     @BeforeClass
     public void Run_On_FireFox() {
@@ -91,20 +101,37 @@ public class Topic_14_Handle_Alert {
     }
 
 
+    // Thư viện Alert không sử dụng được cho Authentication Alert được
+    // Chrome dev tool Protocol (CDP) - Chrome/ Edge (Chromium)
     @Test
-    public void TC_04_Authentication_Alert(){
-        // Thư viện Alert không sử dụng được cho Authentication Alert được
-        // Chrome dev tool Protocol (CDP) - Chrome/ Edge (Chromium)
+    public void TC_04_Authentication_Alert_Pass_To_Url(){
 
         // Cách 1: Truyền thẳng username và pass và url
         // Trick - By Pass qua rồi
-        driver.get("http://admin:admin@the-internet.herokuapp.com/basic_auth");
+       // driver.get("http://" + userName + ":" + passWord + "@" + "the-internet.herokuapp.com/basic_auth");
 
+        //Assert.assertTrue(driver.findElement(By.xpath("//p[contains(text(),'Congratulations! You must have the proper credentials.')]")).isDisplayed());
+
+        // Cách số 2: từ Page A thao tác lên 1 element nó sẽ Page B (Cầnn thao tác vvs Authen Alert trước)
+        driver.get("https://the-internet.herokuapp.com/");
+        String authenLinnkUrl = driver.findElement(By.xpath("//a[text()='Basic Auth']")).getAttribute("href");
+
+        driver.get(getAuthenAlertByUrl(authenLinnkUrl, userName, passWord));
+        //driver.get(authenLinnkUrl);
         Assert.assertTrue(driver.findElement(By.xpath("//p[contains(text(),'Congratulations! You must have the proper credentials.')]")).isDisplayed());
+    }
 
-        // Cách số 2: Chỉ chạy được trên Window
+    @Test
+    public void TC_05_Authentication_Selenium_4x(){
+        DevTools devTools = ((HasDevTools) driver).getDevTools();
+        // Start new session
+        devTools.createSession();
+        // Enable network domain of devtools
+    }
 
-
+    public String getAuthenAlertByUrl(String url, String userName, String passWord){
+        String[] authenArray = url.split("//");
+        return authenArray[0] + "//" + userName + ":" + passWord + "@" + authenArray[1];
     }
 
     public void sleepInSeconds(long timeInSecond){

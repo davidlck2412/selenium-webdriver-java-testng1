@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Topic_15_Interaction_Part1 {
+public class Topic_15_Action_Part1 {
     WebDriver driver;
 
     Actions action;
@@ -55,16 +55,6 @@ public class Topic_15_Interaction_Part1 {
         sleepInSeconds(2);
 
         Assert.assertEquals(driver.findElement(By.xpath("//li[@class='category3954']")).getText(), "CONTEMPORARY FICTION");
-    }
-
-    @Test
-    public void TC_03_(){
-
-    }
-
-    @Test
-    public void TC_04_(){
-
     }
 
     public void sleepInSeconds(long timeInSecond){

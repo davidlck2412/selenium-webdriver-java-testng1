@@ -78,6 +78,41 @@ public class Topic_15_Action_Part2 {
         Assert.assertEquals(driver.findElement(By.xpath("//p[@id='demo']")).getText(), "Hello Automation Guys!");
     }
 
+    @Test
+    public void TC_04_Right_Click(){
+        driver.get("https://swisnl.github.io/jQuery-contextMenu/demo.html");
+
+        // click chuột phải
+        action.contextClick(driver.findElement(By.xpath("//span[text()='right click me']"))).perform();
+        sleepInSeconds(2);
+
+        By quitContextBy = By.xpath("//span[text()='Quit']");
+
+        Assert.assertTrue(driver.findElement(quitContextBy).isDisplayed());
+
+        // Hover Mouse
+        action.moveToElement(driver.findElement(quitContextBy)).perform();
+        sleepInSeconds(2);
+
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.context-menu-icon-quit.context-menu-visible.context-menu-hover")).isDisplayed());
+
+        // Click vào Quit
+        action.click(driver.findElement(quitContextBy)).perform();
+        sleepInSeconds(2);
+
+        driver.switchTo().alert().accept();
+
+        Assert.assertFalse(driver.findElement(quitContextBy).isDisplayed());
+
+    }
+
+    @Test
+    public void TC_05_Drag_Drop(){
+
+    }
+
+
+
     public void sleepInSeconds(long timeInSecond){
         try {
             Thread.sleep(timeInSecond * 1000);

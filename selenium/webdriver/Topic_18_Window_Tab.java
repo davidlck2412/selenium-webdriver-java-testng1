@@ -2,6 +2,8 @@ package webdriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
@@ -43,7 +45,7 @@ public class Topic_18_Window_Tab {
 
     }
     @Test
-    public void TC_02_(){
+    public void TC_02_KynaEnglish(){
         driver.get("https://skills.kynaenglish.vn/");
         sleepInSeconds(10);
         String parentID = driver.getWindowHandle();
@@ -69,7 +71,7 @@ public class Topic_18_Window_Tab {
         sleepInSeconds(3);
     }
     @Test
-    public void TC_03_(){
+    public void TC_03_Techpanda(){
         driver.get("https://live.techpanda.org/");
         sleepInSeconds(5);
 
@@ -97,9 +99,26 @@ public class Topic_18_Window_Tab {
 
         driver.findElement(By.xpath("//input[@id='search']")).sendKeys("Cam khang");
         sleepInSeconds(3);
-    }    @Test
-    public void TC_04_(){
+    }
+    @Test
+    public void TC_04_Seleniu_Version_4(){
+        driver.get("https://seitrace.com/?chain=pacific-1");
+        sleepInSeconds(5);
+        System.out.println("Driver SEITRACE =" + driver.toString());
 
+        // New 1 tab mới hoặc 1 window mới
+        driver.switchTo().newWindow(WindowType.WINDOW).get("https://x.com/seitrace_");
+        sleepInSeconds(2);
+        System.out.println(driver.getTitle());
+        System.out.println(driver.getCurrentUrl());
+
+        driver.switchTo().newWindow(WindowType.WINDOW).get("https://24h.com.vn");
+        sleepInSeconds(2);
+        System.out.println(driver.getTitle());
+        System.out.println(driver.getCurrentUrl());
+
+        switchToWindowByTitle("Seitrace | The comprehensive explorer for the Sei Network");
+        sleepInSeconds(5);
     }
     public void sleepInSeconds(long timeInSecond){
         try {

@@ -18,7 +18,7 @@ public class Topic_19_New_Driver {
 
     WebDriver adminDriver; // Admin site
 
-    String firstName = "Kevin", lastName = "Lamping", emailAddress = "camkhang.bk.hust@gmail.com";
+    String firstName = "Kevin", lastName = "Lamping", emailAddress = getEmailAddress();
 
     String companyName = "Selenium WebDriver", password = "123456";
 
@@ -99,6 +99,11 @@ public class Topic_19_New_Driver {
     public void afterClass(){
         userDriver.quit();
         adminDriver.quit();
+    }
+
+    public String getEmailAddress(){
+        Random rand = new Random();
+        return "camkhang.bk.hust" + rand.nextInt(9999) + "@gmail.com";
     }
 
 }

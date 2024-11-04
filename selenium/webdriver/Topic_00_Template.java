@@ -16,7 +16,7 @@ public class Topic_00_Template {
     @BeforeClass
     public void Run_On_FireFox() {
         driver = new FirefoxDriver();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
     }
 

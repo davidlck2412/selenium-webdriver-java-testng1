@@ -1,16 +1,16 @@
-package TestNG;
+package Testng;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Topic_05_Priority {
+public class Topic_06_Skip {
     @BeforeTest(alwaysRun = true)
     public void init(){
         System.out.println("Pre-Condition for bellow testcases");
     }
 
-    @Test
+    @Test(enabled = false)
     public void Priority_01_SearchWithDate(){
     }
 

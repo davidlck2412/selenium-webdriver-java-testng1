@@ -1,4 +1,4 @@
-package TestNG;
+package Testng;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,6 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import javax.management.RuntimeMBeanException;
 import java.time.Duration;
 
 public class Topic_09_Parameter {

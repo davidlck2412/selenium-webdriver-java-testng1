@@ -1,4 +1,4 @@
-package TestNG;
+package Testng;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.Random;
 
 public class Topic_04_AlwayRun {
 

@@ -1,17 +1,17 @@
-package TestNG;
+package Testng;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.Random;
 
-public class Topic_10_Invocation {
+public class Topic_11_Timeout {
 
     WebDriver driver;
 
@@ -21,7 +21,7 @@ public class Topic_10_Invocation {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @Test(invocationCount = 5)
+    @Test(timeOut = 5000)
     public void TC_05_Success(){
         driver.get("http://live.techpanda.org/");
 

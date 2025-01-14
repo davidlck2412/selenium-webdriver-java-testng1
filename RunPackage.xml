@@ -2,20 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="UI Web and Mobile Automation" verbose="10">
 
-    <listeners>
-        <listener class-name="Listeners.ExtentReport"></listener>
-    </listeners>
-
     <test name="Run on Firefox browser">
         <parameter name="browser" value="firefox"/>
-        <parameter name="version" value="121"/>
         <classes>
-            <class name="Testng.Topic_01_Sample"/>
-            <class name="Testng.Topic_03_Assert"/>
-            <class name="Testng.Topic_05_Priority"/>
-            <class name="Testng.Topic_02_Annotations"/>
-            <class name="Testng.Topic_06_Skip"/>
-            <class name="Testng.Topic_13_Dependencies"/>
+            <class name="javaBasic.Topic_06_Condition_Statement"/>
+        </classes>
+    </test>
+    <test name="Run on Chrome browser">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="javaBasic.Topic_06_Condition_Statement"/>
         </classes>
     </test>
 </suite>
